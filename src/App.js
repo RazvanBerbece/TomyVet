@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import Jumbocarousel from './Components/Jumbo/Jumbocarousel.js';
 import QualityRow from './Components/QualityRow/qrow.js';
+import Footer from './Components/Footer/footer.js';
 
 function App() {
   return (
@@ -13,11 +14,11 @@ function App() {
           <h3> TomyVet </h3>
         </div>
         <div className='navbarLinks'>
-          <a href='#'> Home </a>
+          <a href='#' className='link'> Home </a>
           <p> | </p>
-          <a href='#'> Products </a>
+          <a href='#' className='link'> Products </a>
           <p> | </p>
-          <a href='#'> Contact </a>
+          <a href='#' className='link'> Contact </a>
         </div>
         <div className='navbarSearch'>
           <textarea className='searchForm' maxLength='25'>
@@ -25,8 +26,19 @@ function App() {
           <FontAwesomeIcon icon={faSearch} className='searchIcon'/>
         </div>
       </div>
-        <Jumbocarousel />
-        <QualityRow />
+        <div className='contentContainer'>
+            <div className='contentContainersWrapper'>
+              <div className='jumboContainer'>
+                <Jumbocarousel />
+              </div>
+              <div className='qrowContainer'>
+                <QualityRow />
+              </div>
+            </div>
+        </div>
+        <div className='footerContainer'>
+          <Footer />
+        </div>
     </div>
   );
 }

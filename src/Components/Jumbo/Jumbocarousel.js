@@ -24,24 +24,26 @@ const fadeProperties = {
 
 const Slideshow = () => {
     return (
-      <div className="slide-container">
-        <Fade {...fadeProperties}>
-          <div className="each-fade">
-            <div className="image-container">
-              <img src={fadeImages[0]} alt='slideshow entry'/>
+      <div className='faderContainer'>
+        <div className="slide-container">
+          <Fade {...fadeProperties}>
+            <div className="each-fade">
+              <div className="image-container">
+                <img src={fadeImages[0]} alt='slideshow entry'/>
+              </div>
             </div>
-          </div>
-          <div className="each-fade">
-            <div className="image-container">
-              <img src={fadeImages[1]} alt='slideshow entry'/>
+            <div className="each-fade">
+              <div className="image-container">
+                <img src={fadeImages[1]} alt='slideshow entry'/>
+              </div>
             </div>
-          </div>
-          <div className="each-fade">
-            <div className="image-container">
-              <img src={fadeImages[2]} alt='slideshow entry'/>
+            <div className="each-fade">
+              <div className="image-container">
+                <img src={fadeImages[2]} alt='slideshow entry'/>
+              </div>
             </div>
-          </div>
-        </Fade>
+          </Fade>
+        </div>
       </div>
     )
 }
@@ -55,8 +57,6 @@ function Jumbocarousel() {
                     <hr/>
                     <div className='carouselDescContainer'>
                         <p>
-                            Lorem ipsum dolores es Lorem ipsum dolores esLorem ipsum dolores esLorem ipsum dolores esLorem ipsum dolores es
-                            Lorem ipsum dolores es Lorem ipsum dolores esLorem ipsum dolores esLorem ipsum dolores esLorem ipsum dolores es
                             Lorem ipsum dolores es Lorem ipsum dolores esLorem ipsum dolores esLorem ipsum dolores esLorem ipsum dolores es
                             Lorem ipsum dolores es Lorem ipsum dolores esLorem ipsum dolores esLorem ipsum dolores esLorem ipsum dolores es
                             Lorem ipsum dolores es Lorem ipsum dolores esLorem ipsum dolores esLorem ipsum dolores esLorem ipsum dolores es

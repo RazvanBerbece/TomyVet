@@ -1,7 +1,8 @@
 .App {
   text-align: center;
   width: 100%;
-  height: 100%;
+  height: 100vh;
+  position: relative;
 }
 
 .navbar {
@@ -10,14 +11,18 @@
   height: 7.5%;
   align-items: center;
   justify-content: space-evenly;
-  padding-bottom: 2.5%;
+  background-color: rgba(218, 220, 221, 1);
+  position: absolute;
+  top: 0;
 }
 
 .navbarTitle {
-  text-align: center;
   width: 25%;
   height: inherit;
   font-style: italic;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .navbarLinks {
@@ -31,9 +36,10 @@
 .navbarLinks > a {
   cursor: pointer;
   text-decoration: none;
+  color: black;
 }
 
-.navbarLinks > a :hover {
+.link:hover {
   color: gray;
 }
 
@@ -44,7 +50,7 @@
 
 .navbarSearch {
   width: 25%;
-  height: inherit;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -62,4 +68,50 @@
   height: inherit;
   cursor: pointer;
   padding-left: 2%;
+}
+
+.contentContainer {
+  width: 100%;
+  height: 87.5%;
+  position: absolute; 
+  top: 7.5%;
+  display: flex;
+  align-items: center;
+}
+
+.contentContainersWrapper {
+  width: inherit;
+  height: inherit;
+}
+
+.jumboContainer {
+  height: 87.5%;
+}
+
+.qrowContainer {
+  margin-top: 1%;
+  height: 12.5%;
+}
+
+.footerContainer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .contentContainersWrapper {
+    overflow: auto;
+  }
+  .qrowContainer {
+    margin-top: 20%;
+  }
+  .contentContainersWrapper {
+    height: 100%;
+  }
 }
