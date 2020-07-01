@@ -1,6 +1,6 @@
-import React from 'react';
-import pawLogo from './assets/img/paw.png';
-import Media from 'react-bootstrap/Media';
+import React from "react";
+import pawLogo from "./assets/img/paw.png";
+import Media from "react-bootstrap/Media";
 
 function latestMerch() {
     return (
