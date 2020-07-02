@@ -2,33 +2,43 @@ import React from "react";
 import pawLogo from "./assets/img/paw.png";
 import Media from "react-bootstrap/Media";
 
-function latestMerch() {
+import FadeIn from 'react-fade-in';
+
+class LatestMerch extends React.Component {
+
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
     return (
-        <Media>
+      <>
+      <Media>
         <img
           width={64}
           height={64}
           className="align-self-start mr-3"
-          src={pawLogo}
+          src={this.props.thumbSrc}
           alt="Generic placeholder"
         />
+        <FadeIn transitionDuration={2000}>
         <Media.Body>
-          <h5>Media Heading</h5>
+          <h3>{this.props.title}</h3>
           <p>
-            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque
-            ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at,
-            tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate
-            fringilla. Donec lacinia congue felis in faucibus.
+            {this.props.desc}
           </p>
     
-          <p>
-            Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu
-            leo. Cum sociis natoque penatibus et magnis dis parturient montes,
-            nascetur ridiculus mus.
-          </p>
+          <div className='latestMerchPriceContainer'>
+            <h5> {this.props.price} </h5>
+          </div>
         </Media.Body>
+        </FadeIn>
       </Media>
+      <br/>
+      </>
     );
+  }
+
 }
 
-export default latestMerch;
+export default LatestMerch;

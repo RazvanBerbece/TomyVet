@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'reactn';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -10,16 +10,22 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import ReactTooltip from "react-tooltip";
 
+
 class ShopItemMini extends React.Component {
 
-        /*
-            this.thumbnail = props.thumbSrc;
-            this.title = props.title;
-            this.desc = props.desc;
-            this.price = props.price !== undefined ? props.price : "0.00";
-        */
     constructor(props) {
         super(props);
+        this.handleAddToCart = this.handleAddToCart.bind(this);
+        this.state = {
+            productsInCart: this.global.shoppingCart
+        }
+    }
+
+    handleAddToCart() {
+        console.log(this.props);
+        this.setGlobal({
+            shoppingCart: this.global.shoppingCart.concat(this.props)
+        });
     }
 
     render() {
@@ -57,7 +63,7 @@ class ShopItemMini extends React.Component {
                                         {this.props.price}
                                     </Col>
                                     &nbsp;&nbsp;&nbsp;
-                                    <Col style={{textAlign: "center", width: "50%"}} className="priceCol addToCartWrapper">
+                                    <Col style={{textAlign: "center", width: "50%"}} className="priceCol addToCartWrapper" onClick={this.handleAddToCart}>
                                         Add To Cart
                                     </Col>
                                 </Row>

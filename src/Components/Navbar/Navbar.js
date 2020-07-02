@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "reactn";
 import {
   NavLink,
 } from "react-router-dom";
@@ -7,45 +7,67 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 
-function NavbarCustom() {
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+
+import ReactTooltip from "react-tooltip";
+
+class NavbarCustom extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      productsInCart: 0
+    }
+  }
+
+  render() {
     return (
-        <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
-        <Navbar.Brand href="#home" as={NavLink} to="/intro">
-          <img
-            alt="logo"
-            src={pawLogo}
-            width="30"
-            height="30"
-            className="d-inline-block align-top"
-          />{" "}
-          TomyVet
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="mr-auto">
-            <Nav.Link as={NavLink} to="/intro">Home</Nav.Link>
-            <NavDropdown title="Shop" id="collasible-nav-dropdown">
-              <NavDropdown.Item as={NavLink} to="/allitems">All Items</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Class 1</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Class 2</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Class 3</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Class 4</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Newest Added
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.4">
-                Newest Deals
-              </NavDropdown.Item>
-            </NavDropdown>
-            <Nav.Link as={NavLink} to="/aboutus">About Us</Nav.Link>
-          </Nav>
-          <Nav>
-            <Nav.Link as={NavLink} to="/contact">Contact</Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
-    );
+      <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
+      <Navbar.Brand href="#home" as={NavLink} to="/intro">
+        <img
+          alt="logo"
+          src={pawLogo}
+          width="30"
+          height="30"
+          className="d-inline-block align-top"
+        />{" "}
+        TomyVet
+      </Navbar.Brand>
+      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar.Collapse id="responsive-navbar-nav">
+        <Nav className="mr-auto">
+          <Nav.Link as={NavLink} to="/intro">Home</Nav.Link>
+          <NavDropdown title="Shop" id="collasible-nav-dropdown">
+            <NavDropdown.Item as={NavLink} to="/allitems">All Items</NavDropdown.Item>
+            <NavDropdown.Item href="#action/3.2">Class 1</NavDropdown.Item>
+            <NavDropdown.Item href="#action/3.3">Class 2</NavDropdown.Item>
+            <NavDropdown.Item href="#action/3.3">Class 3</NavDropdown.Item>
+            <NavDropdown.Item href="#action/3.3">Class 4</NavDropdown.Item>
+            <NavDropdown.Divider />
+            <NavDropdown.Item href="#action/3.4">
+              Newest Added
+            </NavDropdown.Item>
+            <NavDropdown.Item href="#action/3.4">
+              Newest Deals
+            </NavDropdown.Item>
+          </NavDropdown>
+          <Nav.Link as={NavLink} to="/aboutus">About Us</Nav.Link>
+        </Nav>
+        <Nav>
+          <Nav.Link as={NavLink} to="/contact">Contact</Nav.Link>
+        </Nav>
+        <Nav>
+          <Nav.Link as={NavLink} to="/cart">
+            <FontAwesomeIcon icon={faShoppingCart} data-tip={`${this.global.shoppingCart.length} items in your cart`}/>
+            <ReactTooltip />
+          </Nav.Link>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
+  );
+  }
+  
 }
 
 export default NavbarCustom;

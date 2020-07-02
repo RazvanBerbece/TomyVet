@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import React, { Component, setGlobal } from "reactn";
+
 import {
   Route,
   HashRouter
@@ -11,30 +12,41 @@ import Intro from "./Intro/intro";
 import Contact from "./Contact/contact";
 import AboutUs from "./AboutUs/aboutus";
 import AllItems from "./Shop/AllItems/allitems";
-/** USED FOR FONTAWESOME ICONS
-  import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-  import { faFireAlt } from "@fortawesome/free-solid-svg-icons";
-  import { faStoreAlt } from "@fortawesome/free-solid-svg-icons";
-*/
+import Cart from "./Cart/cart";
 
-class App extends Component {
+setGlobal({
+  shoppingCart: [],
+});
+
+class App extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      shoppingCartItems: []
+    }
+  }
+
   render() {
     return (
-      <HashRouter>
-      <div className='wrapper'>
-        <Navbar />
-        <div className="content">
-          <Route exact path="/" component={Intro}/>
-          <Route path="/intro" component={Intro}/>
-          <Route path="/allitems" component={AllItems}/>
-          <Route path="/aboutus" component={AboutUs}/>
-          <Route path="/contact" component={Contact}/>
+      <>
+        <HashRouter>
+        <div className='wrapper'>
+          <Navbar />
+          <div className="content">
+            <Route exact path="/" component={Intro}/>
+            <Route path="/intro" component={Intro}/>
+            <Route path="/allitems" component={AllItems}/>
+            <Route path="/aboutus" component={AboutUs}/>
+            <Route path="/contact" component={Contact}/>
+            <Route path="/cart" component={Cart}/>
+          </div>
+          <br />
+          <br />
+          <Footer />
         </div>
-        <br />
-        <br />
-        <Footer />
-      </div>
-      </HashRouter>
+        </HashRouter>
+      </>
     );
   }
 }
