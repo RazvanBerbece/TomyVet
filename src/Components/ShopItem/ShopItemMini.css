@@ -1,0 +1,72 @@
+.miniShopItemWrapper {
+    border: 2.33px solid rgba(135, 135, 135, 0.2);
+    border-bottom: none;
+    border-radius: 7.5px;
+    width: 250px;
+    height: 325px;
+}
+
+.priceContainerCol {
+    border-radius: 2.65px;
+    color: white;
+}
+
+.imageContWrapper {
+    width: 100%;
+    height: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.descContainer {
+    overflow: auto;
+    width: 100%;
+    height: 76.33px;
+}
+
+.productInfo {
+    width: 100%;
+    height: 55%;
+    position: relative;
+}
+
+.priceContainerRow {
+    width: 100%;
+    position: absolute;
+    bottom: -1.33%;
+    left: 0;
+}
+
+.priceCol {
+    height: 50%;
+    box-shadow: 5px 5px 5px rgba(135, 135, 135, 0.84);
+}
+
+.addToCartWrapper {
+    /* rgba(210, 218, 52, 0.95) */
+    background-color: rgba(210, 218, 52, 1);
+    cursor: pointer;
+}
+
+.addToCartWrapper:hover {
+    color: white;
+}
+
+.detailsWrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    opacity: 75%;
+}
+
+.detailsWrapper:hover {
+    opacity: 30%;
+}

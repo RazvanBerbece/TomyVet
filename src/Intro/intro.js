@@ -6,9 +6,63 @@ import Button from "react-bootstrap/Button";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import LatestMerch from "../Components/LatestMerch/ltstmerch";
 
+import ProductReceiver from "../Shop/AllItems/ShopLogic/productReceiver";
+
+import {
+  NavLink,
+} from "react-router-dom";
+
 import FadeIn from 'react-fade-in';
 
 class Intro extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      received: false,
+      products: [],
+      lastTwoAdded: []
+    }
+  }
+
+  componentDidMount() {  
+    if (!this.state.received) {
+      const receiver = new ProductReceiver();
+      receiver.getAllProducts((productsList) => {
+          if (productsList.length) {
+              this.setState({
+                  products: productsList,
+                  received: true
+              });
+              
+              /* Getting the last two products added to the shop */
+              var maxSecondsOne = 0, maxSecondsTwo = 0;
+              var latestProductOne = null, latestProductTwo = null;
+              for (var i = 0; i < this.state.products.length; i++) {
+                const productTime = Date.parse(this.state.products[i].createdAt);
+                if (productTime > maxSecondsOne) {
+                  maxSecondsOne = productTime;
+                  latestProductOne = this.state.products[i];
+                }
+              }
+
+              for (var i = 0; i < this.state.products.length; i++) {
+                const productTime = Date.parse(this.state.products[i].createdAt);
+                if (productTime > maxSecondsTwo && productTime != maxSecondsOne) {
+                    maxSecondsTwo = productTime;
+                    latestProductOne = this.state.products[i];
+                }
+              }
+
+              this.setState({
+                lastTwoAdded: [latestProductOne, latestProductTwo]
+              });
+                console.log(this.state.lastTwoAdded);
+          }
+      });
+    }
+}
+
   render() {
     return (
       <>
@@ -16,7 +70,9 @@ class Intro extends Component {
           <h1> TomyVet </h1>
           <p>Get the best prices for the best quality !</p>
           <p>
-            <Button variant="primary">Shop Now</Button>
+            <Button variant="primary">
+              <NavLink to="/allitems" style={{color: "white", textDecoration: "none"}}>Shop Now</NavLink>
+            </Button>
           </p>
         </Jumbotron>
         <Container>
