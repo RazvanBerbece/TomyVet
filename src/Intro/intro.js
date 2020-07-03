@@ -14,6 +14,9 @@ import {
 
 import FadeIn from 'react-fade-in';
 
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
+
 class Intro extends React.Component {
 
   constructor(props) {
@@ -25,7 +28,7 @@ class Intro extends React.Component {
     }
   }
 
-  componentDidMount() {  
+  componentDidMount() {
     if (!this.state.received) {
       const receiver = new ProductReceiver();
       receiver.getAllProducts((productsList) => {
@@ -34,7 +37,6 @@ class Intro extends React.Component {
                   products: productsList,
                   received: true
               });
-              
               /* Getting the last two products added to the shop */
               var maxSecondsOne = 0, maxSecondsTwo = 0;
               var latestProductOne = null, latestProductTwo = null;
@@ -45,12 +47,11 @@ class Intro extends React.Component {
                   latestProductOne = this.state.products[i];
                 }
               }
-
-              for (var i = 0; i < this.state.products.length; i++) {
-                const productTime = Date.parse(this.state.products[i].createdAt);
+              for (var j = 0; j < this.state.products.length; j++) {
+                const productTime = Date.parse(this.state.products[j].createdAt);
                 if (productTime > maxSecondsTwo && productTime != maxSecondsOne) {
                     maxSecondsTwo = productTime;
-                    latestProductTwo = this.state.products[i];
+                    latestProductTwo = this.state.products[j];
                 }
               }
 

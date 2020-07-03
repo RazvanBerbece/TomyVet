@@ -1,0 +1,13 @@
+.deleteIcon {
+    cursor: pointer;
+    color: rgb(201, 0, 0);
+}
+
+.deleteIcon:hover {
+    opacity: 45%;
+}
+
+.checkoutButton {
+    width: 113px;
+    height: 45px;
+}

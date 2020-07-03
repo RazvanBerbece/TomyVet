@@ -36,21 +36,12 @@ class AllItems extends React.Component {
         });
     }
 
-    generateShopItems() {
-        console.log(this.state.productsMapping);
-        return (
-            <>
-                {this.state.productsMapping}
-            </>
-        );
-    }
-
     render() {
         return (
             <Container id="shop" fluid>
                 <Row>
                     <Col>
-                        <br/><br/><h2> Shop All items </h2><hr/><br/><br/>
+                        <br/><br/><h2 style={{paddingLeft: "1.33%"}}> Shop All items </h2><hr/><br/><br/>
                     </Col>
                 </Row>
                 <FadeIn transitionDuration={2500}>

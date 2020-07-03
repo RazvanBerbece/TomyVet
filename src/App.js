@@ -1,4 +1,4 @@
-import React, { Component, setGlobal } from "reactn";
+import React, { setGlobal, getGlobal } from "reactn";
 
 import {
   Route,
@@ -14,17 +14,25 @@ import AboutUs from "./AboutUs/aboutus";
 import AllItems from "./Shop/AllItems/allitems";
 import Cart from "./Cart/cart";
 
-setGlobal({
-  shoppingCart: [],
-});
+/**
+ * Saving the current state of the shopping cart
+ * TODO COOKIE PROMPT
+ *  */ 
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
 
+setGlobal({
+  shoppingCart: []
+});
+                    
 class App extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      shoppingCartItems: []
+      shoppingCartItemsFromCookie: []
     }
+    cookies.set('shoppingCart', undefined, { path: '/' });
   }
 
   render() {

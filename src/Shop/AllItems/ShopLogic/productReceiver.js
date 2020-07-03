@@ -10,7 +10,7 @@ class ProductReceiver {
             url: "http://localhost:5001/getAllProducts",
         })
         .then(response => {
-            if (response.status == 200) {
+            if (response.status === 200) {
                 for (var i = 0; i < response.data.products.length; i++) {
                     productsList.push(new Product(response.data.products[i]));
                 }
