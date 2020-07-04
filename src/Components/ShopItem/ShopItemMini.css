@@ -42,10 +42,10 @@
 .priceCol {
     height: 50%;
     box-shadow: 5px 5px 5px rgba(135, 135, 135, 0.84);
+    border-radius: 8.5px;
 }
 
 .addToCartWrapper {
-    /* rgba(210, 218, 52, 0.95) */
     background-color: rgba(210, 218, 52, 1);
     cursor: pointer;
 }

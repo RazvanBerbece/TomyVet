@@ -18,13 +18,15 @@ class ShopItemMini extends React.Component {
         super(props);
         this.handleAddToCart = this.handleAddToCart.bind(this);
         this.state = {      
-            productsInCart: this.global.shoppingCart            
+            productsInCart: this.global.shoppingCart,
+            priceDisplay: `${this.props.price} RON`          
         }           
     }
 
     handleAddToCart() {         
         var localCart = this.global.shoppingCart;
         var madeChange = false;
+        const _self = this;
         /* Checking if there is already one product with the same id => Increase specific product counter */
         for (var i = 0; i < localCart.length; i++) {
             if (this.props.id == localCart[i].product.id) {
@@ -41,6 +43,17 @@ class ShopItemMini extends React.Component {
         this.setGlobal({
             shoppingCart: localCart         
         });
+
+        /* Display message that item was added to cart */
+        this.setState({
+            priceDisplay: 'Added to cart'
+        });
+        setTimeout(function() { 
+            _self.setState({
+                priceDisplay: `${_self.props.price} RON` 
+            });
+         }, 1500);
+
         cookies.set('shoppingCart', this.global.shoppingCart, { path: '/' });
     }
 
@@ -75,11 +88,11 @@ class ShopItemMini extends React.Component {
                             <br/>
                             <div className="priceContainerRow">
                                 <Row>
-                                    <Col style={{textAlign: "center", width: "50%", color: "white"}} className="bg-primary priceCol">
-                                        {this.props.price} RON
+                                    <Col style={{textAlign: "center", width: "50%", color: "white", height: "24px"}} className="bg-primary priceCol">
+                                        {this.state.priceDisplay}
                                     </Col>
                                     &nbsp;&nbsp;&nbsp;
-                                    <Col style={{textAlign: "center", width: "50%"}} className="priceCol addToCartWrapper" onClick={this.handleAddToCart}>
+                                    <Col style={{textAlign: "center", width: "50%", height: "24px"}} className="priceCol addToCartWrapper" onClick={this.handleAddToCart}>
                                         Add To Cart
                                     </Col>
                                 </Row>

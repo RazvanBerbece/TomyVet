@@ -14,6 +14,7 @@ class ProductReceiver {
                 for (var i = 0; i < response.data.products.length; i++) {
                     productsList.push(new Product(response.data.products[i]));
                 }
+                console.log(productsList);
                 callback(productsList);
             }
             else {
